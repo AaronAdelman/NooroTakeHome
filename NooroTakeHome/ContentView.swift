@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var settings = NooroSettings()
+    @StateObject var settings = WeatherSettings()
     @State private var searchText = ""
     @State private var searchIsActive = false
     
@@ -22,6 +22,14 @@ struct ContentView: View {
         }
         .environmentObject(settings)
         .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search Location")
+        .onChange(of: searchText) { oldValue, newValue in
+            if !newValue.isEmpty {
+                searchIsActive = true
+                Task {
+                    await settings.fetchWeatherData(locationName: searchText)
+                }
+            }
+        }
     }
 }
 

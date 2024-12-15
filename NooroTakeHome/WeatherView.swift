@@ -8,7 +8,7 @@
 import SwiftUICore
 
 struct WeatherView: View {
-    @EnvironmentObject var settings: NooroSettings
+    @EnvironmentObject var settings: WeatherSettings
 
     var body: some View {
         VStack {

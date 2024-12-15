@@ -34,7 +34,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Localizable.xcstrings,
-				NooroSettings.swift,
+				WeatherSettings.swift,
 			);
 			target = A5F6C5DB2D0F0BE900D14B25 /* NooroTakeHomeTests */;
 		};
@@ -42,7 +42,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Localizable.xcstrings,
-				NooroSettings.swift,
+				WeatherSettings.swift,
 			);
 			target = A5F6C5E52D0F0BE900D14B25 /* NooroTakeHomeUITests */;
 		};
