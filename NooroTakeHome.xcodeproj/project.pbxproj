@@ -29,9 +29,32 @@
 		A5F6C5E62D0F0BE900D14B25 /* NooroTakeHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NooroTakeHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A5F5FEB72D0F10C6008D8C29 /* Exceptions for "NooroTakeHome" folder in "NooroTakeHomeTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Localizable.xcstrings,
+				NooroSettings.swift,
+			);
+			target = A5F6C5DB2D0F0BE900D14B25 /* NooroTakeHomeTests */;
+		};
+		A5F5FEB82D0F10C6008D8C29 /* Exceptions for "NooroTakeHome" folder in "NooroTakeHomeUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Localizable.xcstrings,
+				NooroSettings.swift,
+			);
+			target = A5F6C5E52D0F0BE900D14B25 /* NooroTakeHomeUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A5F6C5CD2D0F0BE600D14B25 /* NooroTakeHome */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A5F5FEB72D0F10C6008D8C29 /* Exceptions for "NooroTakeHome" folder in "NooroTakeHomeTests" target */,
+				A5F5FEB82D0F10C6008D8C29 /* Exceptions for "NooroTakeHome" folder in "NooroTakeHomeUITests" target */,
+			);
 			path = NooroTakeHome;
 			sourceTree = "<group>";
 		};
@@ -326,6 +349,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -380,6 +404,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};

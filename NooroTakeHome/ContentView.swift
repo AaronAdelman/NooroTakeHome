@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var settings = NooroSettings()
+    @State private var searchText = ""
+    @State private var searchIsActive = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            if settings.location == nil {
+                NoContentSelectedView()
+            } else {
+                WeatherView()
+            }
         }
-        .padding()
+        .environmentObject(settings)
+        .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search Location")
     }
 }
 
