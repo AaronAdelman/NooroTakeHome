@@ -11,8 +11,8 @@ import SwiftUI
 class WeatherSettings: ObservableObject, @unchecked Sendable {
     private let weatherLocationKey = "weatherLocation"
     
-    @Published var weatherLocations: WeatherLocationData = []
-    @Published var weatherLocation: WeatherLocationDatum? {
+    @Published var weatherLocations: LocationRecords = []
+    @Published var weatherLocation: LocationRecord? {
         didSet {
             let json = try? JSONEncoder().encode(weatherLocation)
             
@@ -28,7 +28,7 @@ class WeatherSettings: ObservableObject, @unchecked Sendable {
         
         let json = UserDefaults.standard.object(forKey: "weatherLocation")
         if json != nil {
-            weatherLocation = try? JSONDecoder().decode(WeatherLocationDatum.self, from: json as! Data)
+            weatherLocation = try? JSONDecoder().decode(LocationRecord.self, from: json as! Data)
         }
     }
 }
@@ -42,7 +42,7 @@ extension WeatherSettings {
             
             switch result {
             case .success(let data):
-                    let weatherLocationData = try? JSONDecoder().decode(WeatherLocationData.self, from: data)
+                    let weatherLocationData = try? JSONDecoder().decode(LocationRecords.self, from: data)
 //                print("Response: \(String(describing: weatherLocationData))")
                 DispatchQueue.main.async {
                     self.weatherLocations = weatherLocationData ?? []
