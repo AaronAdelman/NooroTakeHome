@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5224F132D10A7C100361FBD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A5F6C5CB2D0F0BE600D14B25 /* NooroTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NooroTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F6C5DC2D0F0BE900D14B25 /* NooroTakeHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NooroTakeHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F6C5E62D0F0BE900D14B25 /* NooroTakeHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NooroTakeHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +104,7 @@
 		A5F6C5C22D0F0BE600D14B25 = {
 			isa = PBXGroup;
 			children = (
+				A5224F132D10A7C100361FBD /* README.md */,
 				A5F6C5CD2D0F0BE600D14B25 /* NooroTakeHome */,
 				A5F6C5DF2D0F0BE900D14B25 /* NooroTakeHomeTests */,
 				A5F6C5E92D0F0BE900D14B25 /* NooroTakeHomeUITests */,
