@@ -6,9 +6,31 @@
 //
 
 import Foundation
+import SwiftUI
 
-class WeatherSettings: ObservableObject {
-    @Published var location: String?
+class WeatherSettings: ObservableObject, @unchecked Sendable {
+    private let weatherLocationKey = "weatherLocation"
+    
+    @Published var weatherLocations: WeatherLocationData = []
+    @Published var weatherLocation: WeatherLocationDatum? {
+        didSet {
+            let json = try? JSONEncoder().encode(weatherLocation)
+            
+            UserDefaults.standard.set(json, forKey: weatherLocationKey)
+        }
+    }
+    
+    @Published var searchIsActive = false
+    
+    init() {
+        weatherLocations = []
+        searchIsActive = false
+        
+        let json = UserDefaults.standard.object(forKey: "weatherLocation")
+        if json != nil {
+            weatherLocation = try? JSONDecoder().decode(WeatherLocationDatum.self, from: json as! Data)
+        }
+    }
 }
 
 extension WeatherSettings {
@@ -20,14 +42,11 @@ extension WeatherSettings {
             
             switch result {
             case .success(let data):
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                        print("Response JSON: \(json)")
-                    }
-                } catch {
-                    print("Error parsing JSON: \(error)")
+                    let weatherLocationData = try? JSONDecoder().decode(WeatherLocationData.self, from: data)
+//                print("Response: \(String(describing: weatherLocationData))")
+                DispatchQueue.main.async {
+                    self.weatherLocations = weatherLocationData ?? []
                 }
-
                 
             case .failure(let error):
                 debugPrint("Failure:  ", error)
@@ -39,7 +58,7 @@ extension WeatherSettings {
     func fetchWeatherData(locationName: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Construct the URL string
         let urlString = "https://api.weatherapi.com/v1/search.json?key=\(WeatherSettings.apiKey)&q=\(locationName)"
-        debugPrint(urlString)
+//        debugPrint(urlString)
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "InvalidURL", code: 400, userInfo: [NSLocalizedDescriptionKey: "The URL is invalid."])))
             return

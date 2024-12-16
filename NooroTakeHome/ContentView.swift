@@ -10,21 +10,22 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var settings = WeatherSettings()
     @State private var searchText = ""
-    @State private var searchIsActive = false
     
     var body: some View {
         NavigationStack {
-            if settings.location == nil {
+            if !settings.weatherLocations.isEmpty && settings.searchIsActive {
+                WeatherLocationsView()
+            } else if settings.weatherLocation == nil {
                 NoContentSelectedView()
             } else {
                 WeatherView()
             }
         }
         .environmentObject(settings)
-        .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search Location")
+        .searchable(text: $searchText, isPresented: $settings.searchIsActive, prompt: "Search Location")
         .onChange(of: searchText) { oldValue, newValue in
             if !newValue.isEmpty {
-                searchIsActive = true
+                settings.searchIsActive = true
                 Task {
                     await settings.fetchWeatherData(locationName: searchText)
                 }

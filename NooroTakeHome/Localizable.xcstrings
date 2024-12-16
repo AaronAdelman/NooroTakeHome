@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Location name" : {
-
-    },
     "No City Selected" : {
       "extractionState" : "manual",
       "localizations" : {

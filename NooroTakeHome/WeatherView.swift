@@ -15,7 +15,7 @@ struct WeatherView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Location name")
+            Text(settings.weatherLocation?.name ?? "???")
                 .padding()
             Text("Temperature")
                 .padding()
