@@ -11,7 +11,7 @@ struct WeatherLocationsView: View {
     @EnvironmentObject var settings: WeatherSettings
 
     var body: some View {
-        List(settings.weatherLocations) {location in
+        List(settings.locations) {location in
             VStack {
                 Text(location.name)
                     .bold()
@@ -20,7 +20,7 @@ struct WeatherLocationsView: View {
             .background(Color.gray.opacity(1.0 - 242/255))
             .cornerRadius(16.0)
             .onTapGesture {
-                settings.weatherLocation = location
+                settings.location       = location
                 settings.searchIsActive = false
             }
             

@@ -13,9 +13,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            if !settings.weatherLocations.isEmpty && settings.searchIsActive {
+            if !settings.locations.isEmpty && settings.searchIsActive {
                 WeatherLocationsView()
-            } else if settings.weatherLocation == nil {
+            } else if settings.location == nil {
                 NoContentSelectedView()
             } else {
                 WeatherView()
@@ -27,7 +27,7 @@ struct ContentView: View {
             if !newValue.isEmpty {
                 settings.searchIsActive = true
                 Task {
-                    await settings.fetchWeatherData(locationName: searchText)
+                    await settings.fetchLocationRecords(locationName: searchText)
                 }
             }
         }

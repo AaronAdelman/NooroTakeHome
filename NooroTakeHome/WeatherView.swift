@@ -15,10 +15,18 @@ struct WeatherView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text(settings.weatherLocation?.name ?? "???")
+            Text(settings.location?.name ?? "???")
                 .padding()
-            Text("Temperature")
+            
+            let tempC = settings.weatherData?.current.tempC
+            if tempC != nil {
+                HStack {
+                    Text("\(tempC!)")
+                        .font(.largeTitle)
+                    Text("°")
+                }
                 .padding()
+            }
         }
     }
 }

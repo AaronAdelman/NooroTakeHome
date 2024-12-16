@@ -1,6 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lf" : {
+
+    },
+    "°" : {
+
+    },
     "No City Selected" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -33,9 +39,6 @@
           }
         }
       }
-    },
-    "Temperature" : {
-
     }
   },
   "version" : "1.0"
