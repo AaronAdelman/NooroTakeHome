@@ -20,7 +20,14 @@ extension WeatherSettings {
             
             switch result {
             case .success(let data):
-                debugPrint("Success:  ", data)
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        print("Response JSON: \(json)")
+                    }
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+
                 
             case .failure(let error):
                 debugPrint("Failure:  ", error)
