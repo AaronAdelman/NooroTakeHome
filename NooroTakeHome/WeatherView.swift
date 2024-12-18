@@ -20,8 +20,8 @@ struct WeatherView: View {
             
             let tempC = settings.weatherData?.current.tempC
             if tempC != nil {
-                HStack {
-                    Text("\(tempC!)")
+                HStack(alignment: .top) {
+                    Text(String(format: "%.01f", tempC!))
                         .font(.largeTitle)
                     Text("°")
                 }

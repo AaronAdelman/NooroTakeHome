@@ -26,9 +26,9 @@ class WeatherSettings: ObservableObject, @unchecked Sendable {
                     
                     switch result {
                     case .success(let data):
-                        debugPrint(String(decoding: data, as: UTF8.self))
+//                        debugPrint(String(decoding: data, as: UTF8.self))
                         let weatherData = try? JSONDecoder().decode(WeatherData.self, from: data)
-                        debugPrint("Weather Data:  ", weatherData as Any)
+//                        debugPrint("Weather Data:  ", weatherData as Any)
                         DispatchQueue.main.async {
                             self.weatherData = weatherData
                         }

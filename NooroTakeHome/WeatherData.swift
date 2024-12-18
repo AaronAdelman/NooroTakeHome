@@ -27,17 +27,21 @@ struct Current: Codable {
     let condition: Condition
     let windMph, windKph: Double
     let windDegree: Int
+//    let windDir: WindDir
     let windDir: String
-    let pressureMB: Int
+    let pressureMB: Double
     let pressureIn, precipMm: Double
-    let precipIn, humidity, cloud: Int
+    let precipIn, humidity, cloud: Double
     let feelslikeC, feelslikeF, windchillC, windchillF: Double
     let heatindexC, heatindexF, dewpointC, dewpointF: Double
-    let visKM, visMiles: Int
+    let visKM, visMiles: Double
     let uv, gustMph, gustKph: Double
     let timeEpoch: Int?
     let time: String?
-    let snowCM, willItRain, chanceOfRain, willItSnow: Int?
+    let snowCM: Double?
+    let willItRain: Int?
+    let chanceOfRain: Double?
+    let willItSnow: Int?
     let chanceOfSnow: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -81,8 +85,9 @@ struct Current: Codable {
 
 // MARK: - Condition
 struct Condition: Codable {
-    let text: ConditionText
-    let icon: String
+//    let text: ConditionText
+    let text: String
+  let icon: String
     let code: Int
 }
 
@@ -137,13 +142,16 @@ struct Astro: Codable {
 // MARK: - Day
 struct Day: Codable {
     let maxtempC, maxtempF, mintempC, mintempF: Double
-    let avgtempC: Int
+    let avgtempC: Double
     let avgtempF: Double
-    let maxwindMph: Int
+    let maxwindMph: Double
     let maxwindKph, totalprecipMm: Double
-    let totalprecipIn, totalsnowCM, avgvisKM, avgvisMiles: Int
-    let avghumidity, dailyWillItRain, dailyChanceOfRain, dailyWillItSnow: Int
-    let dailyChanceOfSnow: Int
+    let totalprecipIn, totalsnowCM, avgvisKM, avgvisMiles: Double
+    let avghumidity: Double
+    let dailyWillItRain: Int
+    let dailyChanceOfRain: Double
+    let dailyWillItSnow: Int
+    let dailyChanceOfSnow: Double
     let condition: Condition
     let uv: Double
 
