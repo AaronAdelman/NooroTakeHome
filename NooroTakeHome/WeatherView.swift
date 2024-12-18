@@ -6,15 +6,18 @@
 //
 
 import SwiftUICore
+import SwiftUI
 
 struct WeatherView: View {
     @EnvironmentObject var settings: WeatherSettings
 
     var body: some View {
+        let iconString: String? = settings.weatherData?.current.condition.icon
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            if iconString != nil {
+                AsyncImage(url: URL(string: "https:" + iconString!))
+            }
+
             Text(settings.location?.name ?? "???")
                 .padding()
             
